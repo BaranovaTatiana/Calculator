@@ -80,8 +80,8 @@
             <Button x:Name="Button3"  Grid.Row="2" Grid.Column="3" Content="3" Background="CornflowerBlue" Click="Button_OnClick" Margin="4.6,4.8,4.6,5"></Button>
             <Button x:Name="ButtonClear"  Grid.Row="3" Grid.Column="3" Content="Clear" Click="Button_OnClick" Margin="4.6,5,4.6,5.4"></Button>
             <Button x:Name="ButtonComma"  Grid.Row="0" Grid.Column="4" Content="," Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
-            <Button x:Name="ButtonBrace1"  Grid.Row="1" Grid.Column="4" Content="(" Margin="5.4,4.6,5.4,5.2" ></Button>
-            <Button x:Name="ButtonBrace2"  Grid.Row="2" Grid.Column="4" Content=")" Margin="5.4,4.8,5.4,5" ></Button>
+            <Button x:Name="ButtonBrace1"  Grid.Row="1" Grid.Column="4" Content="(" Click="Button_OnClick" Margin="5.4,4.6,5.4,5.2" ></Button>
+            <Button x:Name="ButtonBrace2"  Grid.Row="2" Grid.Column="4" Content=")" Click="Button_OnClick" Margin="5.4,4.8,5.4,5" ></Button>
             <Button x:Name="ButtonEqually"  Grid.Row="3" Grid.Column="4" Content="=" Background="DarkRed" IsDefault="True" Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
         </Grid>
     </Grid>

@@ -32,6 +32,14 @@ namespace Calculator
                     _firstNumber = null;
                     _sign = null;
                     return;
+                case "(":
+                    MessageBox.Show("Еще в процессе разработки");
+                    _isSignOn = true;
+                    break;
+                case ")":
+                    MessageBox.Show("Я же сказал разрабатываем!");
+                    _isSignOn = true;
+                    break;
                 case "+":
                 case "-":
                 case "/":
@@ -54,6 +62,7 @@ namespace Calculator
                     if (!MainText.Text.Contains(',')) MainText.Text += content;
                     return;
             }
+            if (content == "(" || content == ")") return;
             if (MainText.Text == "0" || _isSignOn || _isResult)
             {
                 MainText.Text = content;

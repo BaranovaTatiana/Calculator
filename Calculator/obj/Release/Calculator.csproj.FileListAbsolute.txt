@@ -1,0 +1,16 @@
+C:\Users\wshad\source\repos\Calculator\Calculator\bin\Release\Calculator.exe.config
+C:\Users\wshad\source\repos\Calculator\Calculator\bin\Release\Calculator.exe
+C:\Users\wshad\source\repos\Calculator\Calculator\bin\Release\Calculator.pdb
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.csprojAssemblyReference.cache
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\MainWindow.g.cs
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\App.g.cs
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator_MarkupCompile.cache
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator_MarkupCompile.lref
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\App.baml
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\MainWindow.baml
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.g.resources
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.Properties.Resources.resources
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.csproj.GenerateResource.cache
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.exe
+C:\Users\wshad\source\repos\Calculator\Calculator\obj\Release\Calculator.pdb

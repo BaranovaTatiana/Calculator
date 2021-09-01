@@ -1,0 +1,89 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Калькулятор" Height="450" Width="600" MinWidth="360" MinHeight="435" >
+
+
+    <Grid Background="DarkGray" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+       <Label Grid.Column="0" Grid.Row="0" Content="Калькулятор" FontSize="25"   ></Label>
+            <TextBlock x:Name="OpacityText" Grid.Row="1" Grid.Column="0"  Text="" HorizontalAlignment="Right" TextAlignment ="Center" FontSize="25" Opacity="0.6"
+                       Margin="7" />
+            <TextBox x:Name="MainText" Grid.Row="2" Grid.Column="0" Text="0"  HorizontalAlignment="Right" FontSize="70" Background="DarkGray" 
+                     VerticalAlignment="Center"  ></TextBox>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="6 0 0 0" >
+                <TextBlock x:Name="TextBlock" Text="Тригонометрия"   Background="PaleVioletRed" HorizontalAlignment="Left" Margin="0 0 3 0"/>
+                <ComboBox Margin="0 0 3 0">
+                    <StackPanel Orientation="Horizontal" Background="Brown">
+                        <Button Content="sin"></Button>
+                        <Button Content="cos"></Button>
+                        <Button Content="tan"></Button>
+                        <Button Content="cot"></Button>
+                        <Button Content="sec"></Button>
+                        <Button Content="csc"></Button>
+                    </StackPanel>
+
+                </ComboBox>
+                <TextBlock Text="Функция" Background="Aqua"  TextAlignment="Center" Margin="0 0 3 0" ></TextBlock>
+                <ComboBox >
+                    <StackPanel Orientation="Horizontal" Background="Blue">
+                        <Button Content="sin"></Button>
+                        <Button Content="cos"></Button>
+                        <Button Content="tan"></Button>
+                        <Button Content="cot"></Button>
+                        <Button Content="sec"></Button>
+                        <Button Content="csc"></Button>
+                    </StackPanel>
+
+                </ComboBox>
+            </StackPanel>
+       
+        <Grid Grid.Row="4" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ButtonPlus"  Grid.Row="0" Grid.Column="0" Content="+" Click="Button_OnClick"  Margin="5,5,4.8,5.4" ></Button>
+            <Button x:Name="ButtonMinus"  Grid.Row="1" Grid.Column="0" Content="-" Click="Button_OnClick"  Margin="5,4.6,4.8,5.2"></Button>
+            <Button x:Name="ButtonPlusDivision"  Grid.Row="2" Grid.Column="0" Content="/" Click="Button_OnClick"  Margin="5,4.8,4.8,5"></Button>
+            <Button x:Name="ButtonMulti"  Grid.Row="3" Grid.Column="0" Content="*" Click="Button_OnClick"  Margin="5,5,4.8,5.4"></Button>
+            <Button x:Name="Button7"  Grid.Row="0" Grid.Column="1" Content="7" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.2,5,4.6,5.4"></Button>
+            <Button x:Name="Button4"  Grid.Row="1" Grid.Column="1" Content="4" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.2,4.6,4.6,5.2"></Button>
+            <Button x:Name="Button1"  Grid.Row="2" Grid.Column="1" Content="1" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.2,4.8,4.6,5"></Button>
+            <Button x:Name="ButtonPercent"  Grid.Row="3" Grid.Column="1" Content="%" Margin="5.2,5,4.6,5.4" ></Button>
+            <Button x:Name="Button8"  Grid.Row="0" Grid.Column="2" Content="8" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
+            <Button x:Name="Button5"  Grid.Row="1" Grid.Column="2" Content="5" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,4.6,5.4,5.2"></Button>
+            <Button x:Name="Button2"  Grid.Row="2" Grid.Column="2" Content="2" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,4.8,5.4,5"></Button>
+            <Button x:Name="Button0"  Grid.Row="3" Grid.Column="2" Content="0" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
+            <Button x:Name="Button9"  Grid.Row="0" Grid.Column="3" Content="9" Background="CornflowerBlue" Click="Button_OnClick" Margin="4.6,5,4.6,5.4"></Button>
+            <Button x:Name="Button6"  Grid.Row="1" Grid.Column="3" Content="6" Background="CornflowerBlue" Click="Button_OnClick" Margin="4.6,4.6,4.6,5.2"></Button>
+            <Button x:Name="Button3"  Grid.Row="2" Grid.Column="3" Content="3" Background="CornflowerBlue" Click="Button_OnClick" Margin="4.6,4.8,4.6,5"></Button>
+            <Button x:Name="ButtonClear"  Grid.Row="3" Grid.Column="3" Content="Clear" Click="Button_OnClick" Margin="4.6,5,4.6,5.4"></Button>
+            <Button x:Name="ButtonComma"  Grid.Row="0" Grid.Column="4" Content="," Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
+            <Button x:Name="ButtonBrace1"  Grid.Row="1" Grid.Column="4" Content="(" Margin="5.4,4.6,5.4,5.2" ></Button>
+            <Button x:Name="ButtonBrace2"  Grid.Row="2" Grid.Column="4" Content=")" Margin="5.4,4.8,5.4,5" ></Button>
+            <Button x:Name="ButtonEqually"  Grid.Row="3" Grid.Column="4" Content="=" Background="DarkRed" IsDefault="True" Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
+        </Grid>
+    </Grid>
+
+</Window>

@@ -21,8 +21,6 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
-            var gg = 0.12345678901234567890123456789012345678901234567890;
-            var gg2 = gg * 0.123123123123;
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
 

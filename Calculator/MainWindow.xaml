@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Калькулятор" Height="450" Width="600" MinWidth="360" MinHeight="435" >
 
-
+<Grid>
     <Grid Background="DarkGray" >
         <Grid.RowDefinitions>
             <RowDefinition Height ="0.2*"></RowDefinition>
@@ -23,7 +23,7 @@
                      VerticalAlignment="Center"  ></TextBox>
             <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="6 0 0 0" >
                 <TextBlock x:Name="TextBlock" Text="Тригонометрия"   Background="PaleVioletRed" HorizontalAlignment="Left" Margin="0 0 3 0"/>
-                <ComboBox Margin="0 0 3 0">
+                <ComboBox Margin="0 0 3 0" Height="20" VerticalAlignment="Bottom">
                     <StackPanel Orientation="Horizontal" Background="Brown">
                         <Button Content="sin"></Button>
                         <Button Content="cos"></Button>
@@ -70,7 +70,7 @@
             <Button x:Name="Button7"  Grid.Row="0" Grid.Column="1" Content="7" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.2,5,4.6,5.4"></Button>
             <Button x:Name="Button4"  Grid.Row="1" Grid.Column="1" Content="4" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.2,4.6,4.6,5.2"></Button>
             <Button x:Name="Button1"  Grid.Row="2" Grid.Column="1" Content="1" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.2,4.8,4.6,5"></Button>
-            <Button x:Name="ButtonPercent"  Grid.Row="3" Grid.Column="1" Content="%" Margin="5.2,5,4.6,5.4" ></Button>
+            <Button x:Name="ButtonSquareRoot"  Grid.Row="3" Grid.Column="1" Content="√" Margin="5.2,5,4.6,5.4" Click="Button_OnClick" ></Button>
             <Button x:Name="Button8"  Grid.Row="0" Grid.Column="2" Content="8" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
             <Button x:Name="Button5"  Grid.Row="1" Grid.Column="2" Content="5" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,4.6,5.4,5.2"></Button>
             <Button x:Name="Button2"  Grid.Row="2" Grid.Column="2" Content="2" Background="CornflowerBlue" Click="Button_OnClick" Margin="5.4,4.8,5.4,5"></Button>
@@ -85,5 +85,11 @@
             <Button x:Name="ButtonEqually"  Grid.Row="3" Grid.Column="4" Content="=" Background="DarkRed" IsDefault="True" Click="Button_OnClick" Margin="5.4,5,5.4,5.4"></Button>
         </Grid>
     </Grid>
+    <Grid x:Name="GridCalc" Background="#BB6677FF" Visibility="Collapsed"  >
+        <TextBlock Text="Ждите, производится расчет!" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="35" FontWeight="Bold"/>
+    </Grid>
+
+</Grid>
 
 </Window>

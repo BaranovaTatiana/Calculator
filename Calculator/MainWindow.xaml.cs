@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using CalcLibrary;
 
 namespace Calculator
 {
@@ -17,6 +21,9 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
+            var gg = 0.12345678901234567890123456789012345678901234567890;
+            var gg2 = gg * 0.123123123123;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
 
         private void Button_OnClick(object sender, RoutedEventArgs e)
@@ -26,43 +33,25 @@ namespace Calculator
             switch (content)
             {
                 case "Clear":
-                    OpacityText.Text = "";
-                    MainText.Text = "0";
-                    _isSignOn = false;
-                    _firstNumber = null;
-                    _sign = null;
+                    Clear();
                     return;
-                case "(":
-                    MessageBox.Show("Еще в процессе разработки");
-                    _isSignOn = true;
-                    break;
-                case ")":
-                    MessageBox.Show("Я же сказал разрабатываем!");
-                    _isSignOn = true;
-                    break;
-                case "+":
-                case "-":
-                case "/":
-                case "*":
-                    _firstNumber = MainText.Text;
-                    _sign = content;
-                    OpacityText.Text = MainText.Text + " " + content;
-                    _isSignOn = true;
+                case "√":
+                    SqrtAsync();
+                    return;
+                case "+": case "-": case "/": case "*":
+                    AddSign(content);
                     return;
                 case "=":
-                    {
-                        var num1 = Convert.ToDouble(_firstNumber);
-                        var num2 = Convert.ToDouble(MainText.Text);
-                        var value = Calc(num1, num2);
-                        MainText.Text = value.ToString();
-                        _isResult = true;
-                        return;
-                    }
+                    СalculationAsync();
+                    return;
                 case ",":
                     if (!MainText.Text.Contains(',')) MainText.Text += content;
                     return;
+                case "(": case ")":
+                    MessageBox.Show("В процессе разработки");
+                    _isSignOn = true;
+                    return;
             }
-            if (content == "(" || content == ")") return;
             if (MainText.Text == "0" || _isSignOn || _isResult)
             {
                 MainText.Text = content;
@@ -72,25 +61,69 @@ namespace Calculator
             else MainText.Text += content;
         }
 
-        private double Calc(double num1, double num2)
+        private void Clear()
         {
-            var value = 0d;
+            OpacityText.Text = "";
+            MainText.Text = "0";
+            _isSignOn = false;
+            _firstNumber = null;
+            _sign = null;
+        }
+
+        private void AddSign(string content)
+        {
+            _firstNumber = MainText.Text;
+            _sign = content;
+            OpacityText.Text = MainText.Text + " " + content;
+            _isSignOn = true;
+        }
+
+        private async void SqrtAsync()
+        {
+            double num = double.Parse(MainText.Text.Replace(',', '.'));
+            if (num < 0)
+            {
+                MessageBox.Show("Неверный ввод!");
+                return;
+            }
+            GridCalc.Visibility = Visibility.Visible;
+            
+            MainText.Text = (await AsyncCalc.Sqrt(num)).ToString();
+            GridCalc.Visibility = Visibility.Collapsed;
+        }
+        private async void СalculationAsync()
+        {
+            var num1 = double.Parse(_firstNumber.Replace(',','.'));
+            var num2 = double.Parse(MainText.Text.Replace(',', '.'));
+            GridCalc.Visibility = Visibility.Visible;
+            double value;
             switch (_sign)
             {
                 case "+":
-                    value = num1 + num2;
+                    value = await AsyncCalc.Sum(num1, num2);
                     break;
                 case "-":
-                    value = num1 - num2;
+                    value = await AsyncCalc.Diff(num1, num2);
                     break;
                 case "/":
-                    value = num1 / num2;
+                    if ((int)num2 < 0)
+                    {
+                        GridCalc.Visibility = Visibility.Collapsed;
+                        MessageBox.Show("Деление на 0 невозможно");
+                        return;
+                    }
+                    value = await AsyncCalc.Divide(num1, num2);
                     break;
                 case "*":
-                    value = num1 * num2;
+                    value = await AsyncCalc.Multiply(num1, num2);
                     break;
+                default:
+                    throw new Exception("Неверный знак");
             }
-            return value;
+            MainText.Text = value.ToString();
+            GridCalc.Visibility = Visibility.Collapsed;
+            _isResult = true;
         }
     }
+
 }
